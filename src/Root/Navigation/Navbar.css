@@ -1,0 +1,86 @@
+/* Navbar */
+#navBar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  overflow: hidden;
+}
+
+/* Toggle Button */
+#toggle {
+  cursor: pointer;
+  padding: 0.1rem 0.3rem;
+}
+
+/* Toggle Bars */
+#toggleBars {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 30px;
+  height: 20px;
+  transition: all 0.3s ease;
+}
+
+#toggleBars span {
+  width: 100%;
+  height: 3px;
+  border-radius: 5px;
+  transition: all 0.3s ease-in-out;
+}
+
+/* Toggle Bars (Open) */
+#toggleBars.open span:nth-child(1) {
+  transform: rotate(45deg) translate(5px, 5px);
+}
+
+#toggleBars.open span:nth-child(2) {
+  opacity: 0;
+}
+
+#toggleBars.open span:nth-child(3) {
+  transform: rotate(-45deg) translate(7px, -7px);
+}
+
+/* Custom Navbar Links with Animation */
+.cBtn {
+  position: relative;
+  color: #000;
+  transition: all 0.3s ease;
+}
+
+.cBtn::after {
+  content: '';
+  position: absolute;
+  bottom: -1px;
+  left: -3px;
+  width: 0;
+  height: 3px;
+  border-radius: 22%;
+  background: #fab63e;
+  transition: all ease 0.5s;
+}
+
+.cBtn.active::after {
+  width: 100%;
+}
+
+.cBtn:hover {
+  transform: translateY(-2px);
+}
+
+/* Small Device Links Animation */
+#smallDeviceLinks {
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  width: 100%;
+  position: fixed;
+  left: 0;
+  transition: all 0.5s ease; /* Smooth height transition */
+  overflow: hidden;
+}
