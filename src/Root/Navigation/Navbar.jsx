@@ -10,7 +10,7 @@ const Navbar = () => {
   // JSX for navigation links
   const links = (
     <>
-      <NavLink exact to={"/"} className="cBtn">
+      <NavLink to={"/"} className="cBtn">
         Home
       </NavLink>
       <NavLink to={"/about"} className="cBtn">
