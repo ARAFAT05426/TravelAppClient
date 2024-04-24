@@ -23,7 +23,7 @@ const Navbar = () => {
   );
 
   return (
-    <nav id="navBar" className="bg-white/35 h-20 backdrop:blur-2xl px-2 md:px-16 lg:px-28 shadow-xl">
+    <nav id="navBar" className="bg-white/35 h-16 backdrop:blur-2xl px-2 md:px-16 lg:px-28 shadow-xl">
       {/* Left Area */}
       <div className="">
       <img className="w-12 lg:w-[4.5rem]" src={logo} alt="" />

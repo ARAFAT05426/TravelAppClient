@@ -1,7 +1,7 @@
 
 const Contact = () => {
     return (
-        <section className="min-h-screen pt-20">
+        <section className="">
             i am Contact
         </section>
     );

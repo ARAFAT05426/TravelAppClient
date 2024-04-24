@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-
+import err from '/Resources/404.gif'
 const Error = () => {
   return (
     <section className="flex items-center flex-col justify-center min-h-screen">
@@ -7,7 +7,7 @@ const Error = () => {
         <div className="container flex flex-col items-center justify-center px-5 mx-auto my-8">
           <div className="max-w-md text-center">
             <h2 className="mb-8 font-extrabold text-9xl text-gray-400">
-              <span className="sr-only">Error</span>404
+              <img src={err} alt="" />
             </h2>
             <p className="text-2xl font-semibold md:text-3xl">
               Sorry, we couldn`t find this page.

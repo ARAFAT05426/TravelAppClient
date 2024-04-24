@@ -1,6 +1,6 @@
 const About = () => {
     return (
-        <section className="min-h-screen pt-20">
+        <section className="">
             i am About
         </section>
     );
