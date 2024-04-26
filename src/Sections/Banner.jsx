@@ -41,7 +41,7 @@ const Banner = () => {
       {/* Text Content */}
       <div
         style={{ fontFamily: '"Tourney", sans-serif' }}
-        className="absolute top-[40%] left-1/4 max-w-4xl z-10 flex flex-col items-center justify-center"
+        className="absolute top-[40%] left-10 lg:left-1/4 max-w-4xl z-10 flex flex-col items-center justify-center"
       >
         <span className="text-center font-extralight text-xl">LETS TRAVEL THE WORLD WITH US</span>
         <h1 className="text-7xl text-center font-bold">

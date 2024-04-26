@@ -6,6 +6,8 @@ import About from "../Outlets/About";
 import Contact from "../Outlets/Contact";
 import All_Spots from "../Outlets/All_Spots";
 import Add_Spots from "../Outlets/Add_Spots";
+import SignUp from "../Outlets/SignUp/SignUp";
+import LogIn from "../Outlets/LogIn/LogIn";
 
 const routes = createBrowserRouter([
   {
@@ -33,6 +35,14 @@ const routes = createBrowserRouter([
         path: "/contact",
         element: <Contact />,
       },
+      {
+        path: '/logIn',
+        element: <LogIn />
+      },
+      {
+        path: '/signUp',
+        element: <SignUp />
+      }
     ],
   },
 ]);

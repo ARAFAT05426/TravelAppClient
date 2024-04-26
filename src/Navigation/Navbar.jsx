@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Link, NavLink } from "react-router-dom";
+import { BiUserCircle } from "react-icons/bi";
 import logo from "/Resources/logo.png";
 import "./Navbar.css";
 
@@ -55,7 +56,7 @@ const Navbar = () => {
       {/* Right Area */}
       <div className="flex items-center">
         <div>
-          
+          <Link to={'/logIn'} className="px-3 py-1 bg-btn_bg flex items-center gap-1 font-semibold text-xl"><BiUserCircle className="text-4xl" />Log In</Link>
         </div>
         {/* Toggle Button */}
         <div
