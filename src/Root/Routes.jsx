@@ -8,6 +8,7 @@ import All_Spots from "../Outlets/All_Spots";
 import Add_Spots from "../Outlets/Add_Spots";
 import SignUp from "../Outlets/SignUp/SignUp";
 import LogIn from "../Outlets/LogIn/LogIn";
+import Private from "../Outlets/Private";
 
 const routes = createBrowserRouter([
   {
@@ -25,7 +26,7 @@ const routes = createBrowserRouter([
       },
       {
         path: "/addSpots",
-        element: <Add_Spots />,
+        element: <Private><Add_Spots /></Private>,
       },
       {
         path: "/about",

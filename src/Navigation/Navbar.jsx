@@ -3,11 +3,12 @@ import { Link, NavLink } from "react-router-dom";
 import { BiUserCircle } from "react-icons/bi";
 import logo from "/Resources/logo.png";
 import "./Navbar.css";
+import Swal from 'sweetalert2'
+import useCallContext from "../Hooks/useCallContext";
 
 const Navbar = () => {
   // State for controlling mobile menu visibility
   const [act, setAct] = useState(false);
-
   // JSX for navigation links
   const links = (
     <>
@@ -28,7 +29,16 @@ const Navbar = () => {
       </NavLink>
     </>
   );
-
+  const { user, signOutUSer } = useCallContext();
+  const handleLogOut = () =>{
+    signOutUSer()
+    return Swal.fire({
+      background: "#CDD4DB",
+      title: `Signing out? ${user?.displayName}`,
+      text: 'We`ll be here when you`re ready to return!',
+      icon: 'success',
+  })
+  }
   return (
     <nav
       id="navBar"
@@ -56,7 +66,25 @@ const Navbar = () => {
       {/* Right Area */}
       <div className="flex items-center">
         <div>
-          <Link to={'/logIn'} className="px-3 py-1 bg-btn_bg flex items-center gap-1 font-semibold text-xl"><BiUserCircle className="text-4xl" />Log In</Link>
+          {user?.photoURL ? (
+            <button onClick={handleLogOut} className="px-3 py-1 h-12 bg-btn_bg flex items-center gap-1 font-semibold text-xl rounded">
+              <img
+                className="w-14 rounded-full p-3"
+                onError={(e) => { e.target.src="https://i.ibb.co/nDMvB3b/image-Errr.gif" }}
+                src={user?.photoURL}
+                alt=""
+              />
+              Log Out
+            </button>
+          ) : (
+            <Link
+              to={"/logIn"}
+              className="px-3 py-1 bg-btn_bg flex items-center gap-1 font-semibold text-xl rounded"
+            >
+              <BiUserCircle className="text-4xl" />
+              Log In
+            </Link>
+          )}
         </div>
         {/* Toggle Button */}
         <div

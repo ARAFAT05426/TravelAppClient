@@ -53,7 +53,7 @@ const Banner = () => {
           </span>
           THE WORLD WITH  
           <span className="ml-5 text-nav_bg">
-          <Typewriter  loop words={['KlickTrips', 'Our Guide', 'Joy']} cursor />
+          <Typewriter  loop words={['KLICKTRIPS', 'OUR GUIDE', 'JOY']} cursor />
 
           </span>
         </h1>
