@@ -18,6 +18,7 @@ const Banner = () => {
         pagination={{
           dynamicBullets: true,
         }}
+        loop={true}
         autoplay={{ delay: 1500 }}
         modules={[Autoplay, Pagination]}
         className="mySwiper min-h-[100vh-64px] absolute top-0 left-0"
@@ -43,8 +44,8 @@ const Banner = () => {
         style={{ fontFamily: '"Tourney", sans-serif' }}
         className="absolute top-[40%] left-10 lg:left-1/4 max-w-4xl z-10 flex flex-col items-center justify-center"
       >
-        <span className="text-center font-extralight text-xl">LETS TRAVEL THE WORLD WITH US</span>
-        <h1 className="text-7xl text-center font-bold">
+        <span className="text-center font-extralight text-base lg:text-xl">LETS TRAVEL THE WORLD WITH US</span>
+        <h1 className=" text-4xl lg:text-7xl text-center font-bold">
           <span
             className="font-light mr-4"
             style={{ fontFamily: '"Tourney", sans-serif' }}

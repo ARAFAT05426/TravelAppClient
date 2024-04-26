@@ -17,7 +17,7 @@ const SignUp = () => {
     handleSubmit,
     formState: { errors },
   } = useForm();
-  const { user, createUser, updateUser } = useCallContext();
+  const { createUser, updateUser } = useCallContext();
   const onSubmit = (data, e) => {
     const { name, email, password, url } = data;
     const passValue = data.password;
@@ -26,22 +26,22 @@ const SignUp = () => {
     }
     createUser(email, password)
       .then(() => {
-        Swal.fire({
-          background: "#CDD4DB",
-          title: `Welcome ${user?.displayName}`,
-          text: "Let`s roll",
-          icon: "success",
-        });
         e.target.reset();
         updateUser(name, url);
+        return Swal.fire({
+          background: "#CDD4DB",
+          title: `Welcome To KlickTrips`,
+          text: "Ready to Explore",
+          icon: "success",
+        });
       })
       .then((errors) => {
         console.log(errors);
       });
   };
   return (
-    <section className="px-28 grid grid-cols-2 gap-4">
-      <div className="h-5/6 my-auto bg-white/40 backdrop:blur-3xl px-20 py-5 rounded-lg space-y-2">
+    <section className="px-4 lg:px-28 flex flex-col-reverse lg:flex-row-reverse gap-4 justify-center min-h-[calc(100vh-64px)]">
+      <div className="h-fit lg:h-5/6 w-full lg:w-1/2 my-auto bg-white/40 backdrop:blur-3xl px-5 lg:px-20 py-5 rounded-lg space-y-2">
         <img className="w-1/4 mx-auto" src={logo} alt="" />
         <form
           onSubmit={handleSubmit(onSubmit)}

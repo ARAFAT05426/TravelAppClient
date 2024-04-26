@@ -12,7 +12,7 @@ import { FaEye, FaEyeSlash } from "react-icons/fa";
 import Swal from 'sweetalert2'
 const LogIn = () => {
   const [toggle, setToggle] = useState(false);
-  const { user, signUser } = useCallContext();
+  const { signUser } = useCallContext();
   const location = useLocation();
   const navigate = useNavigate();
   const {
@@ -27,8 +27,8 @@ const LogIn = () => {
       .then(() => {
         Swal.fire({
           background: "#CDD4DB",
-          title: `Welcome Back ${user?.displayName}`,
-          text: 'Ready to Explore',
+          title: `Welcome Back To KlickTrips`,
+          text: 'Let`s roll ',
           icon: 'success',
       });
         navigate(location?.state || "/")
@@ -39,9 +39,9 @@ const LogIn = () => {
       });
   };
   return (
-    <section className="px-28 grid grid-cols-2 gap-4">
+    <section className="px-4 lg:px-28 flex flex-col lg:flex-row-reverse gap-4 justify-center min-h-[calc(100vh-64px)]">
       <Lottie animationData={logIn} />
-      <div className="h-4/5 my-auto bg-white/40 backdrop:blur-3xl px-20 py-10 rounded-lg space-y-3">
+      <div className="h-fit lg:h-4/5 w-full lg:w-1/2 my-auto bg-white/40 backdrop:blur-3xl px-5 lg:px-20 py-10 rounded-lg space-y-3">
         <img className="w-1/4 mx-auto" src={logo} alt="" />
         <form
           onSubmit={handleSubmit(onSubmit)}

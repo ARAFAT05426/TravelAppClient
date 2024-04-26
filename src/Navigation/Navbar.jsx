@@ -3,8 +3,9 @@ import { Link, NavLink } from "react-router-dom";
 import { BiUserCircle } from "react-icons/bi";
 import logo from "/Resources/logo.png";
 import "./Navbar.css";
-import Swal from 'sweetalert2'
+import Swal from "sweetalert2";
 import useCallContext from "../Hooks/useCallContext";
+import { Tooltip } from "react-tooltip";
 
 const Navbar = () => {
   // State for controlling mobile menu visibility
@@ -30,15 +31,15 @@ const Navbar = () => {
     </>
   );
   const { user, signOutUSer } = useCallContext();
-  const handleLogOut = () =>{
-    signOutUSer()
+  const handleLogOut = () => {
+    signOutUSer();
     return Swal.fire({
       background: "#CDD4DB",
-      title: `Signing out? ${user?.displayName}`,
-      text: 'We`ll be here when you`re ready to return!',
-      icon: 'success',
-  })
-  }
+      title: `Signed Out! ${user?.displayName}`,
+      text: "We`ll be here when you`re ready to return!",
+      icon: "success",
+    });
+  };
   return (
     <nav
       id="navBar"
@@ -56,7 +57,7 @@ const Navbar = () => {
         {/* Small device links */}
         <div
           id="smallDeviceLinks"
-          className={`flex lg:hidden bg-white/35 backdrop:blur-2xl mt-6 ${
+          className={`flex lg:hidden bg-white/45 backdrop-blur-xl mt-8 ${
             act ? "h-[50vh] pt-7" : "h-0"
           }`}
         >
@@ -67,15 +68,29 @@ const Navbar = () => {
       <div className="flex items-center">
         <div>
           {user?.photoURL ? (
-            <button onClick={handleLogOut} className="px-3 py-1 h-12 bg-btn_bg flex items-center gap-1 font-semibold text-xl rounded">
-              <img
-                className="w-14 rounded-full p-3"
-                onError={(e) => { e.target.src="https://i.ibb.co/nDMvB3b/image-Errr.gif" }}
-                src={user?.photoURL}
-                alt=""
+            <>
+              <button
+                data-tooltip-id="userName"
+                data-tooltip-content={user?.displayName}
+                onClick={handleLogOut}
+                className="px-3 py-1 h-12 bg-btn_bg flex items-center gap-1 font-semibold text-xl rounded"
+              >
+                <img
+                  className="w-14 rounded-full p-3"
+                  onError={(e) => {
+                    e.target.src = "https://i.ibb.co/nDMvB3b/image-Errr.gif";
+                  }}
+                  src={user?.photoURL}
+                  alt=""
+                />
+                Log Out
+              </button>
+              <Tooltip
+                style={{background: '#446680'}}
+                id="userName"
+                place="left-start"
               />
-              Log Out
-            </button>
+            </>
           ) : (
             <Link
               to={"/logIn"}
@@ -93,9 +108,9 @@ const Navbar = () => {
           onClick={() => setAct(!act)}
         >
           <div id="toggleBars" className={`${act ? "open" : ""}`}>
-            <span className="bg-[#D35623]"></span>
-            <span className="bg-[#D35623]"></span>
-            <span className="bg-[#D35623]"></span>
+            <span className="bg-btn_bg"></span>
+            <span className="bg-btn_bg"></span>
+            <span className="bg-btn_bg"></span>
           </div>
         </div>
       </div>

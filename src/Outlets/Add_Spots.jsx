@@ -1,10 +1,216 @@
- 
+import { Link } from "react-router-dom";
+import { useState } from "react";
+import { useForm } from "react-hook-form";
 const Add_Spots = () => {
-    return (
-        <section>
-            
-        </section>
-    );
+  const [isHovered, setIsHovered] = useState(false);
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm();
+  const onSubmit = (data) => {
+    console.log(data);
+  };
+  return (
+    <section className="min-h-[calc(100vh-64px)] px-28 py-10">
+      <Link to={'/'}
+        className={`px-5 py-3 ${
+          isHovered ? "text-nav_bg" : "bg-btn_bg "
+        } flex items-center w-fit gap-1 font-semibold rounded-sm transition-all`}
+      >
+        Back to home
+      </Link>
+      <div
+        onMouseOver={() => setIsHovered(true)}
+        onMouseLeave={() => setIsHovered(false)}
+        className="px-24 py-14 bg-white/40 backdrop-blur-3xl mt-5 rounded space-y-3"
+      >
+        <div>
+          <h1 className="text-5xl text-center text-nav_bg font-bold">
+            Add New
+            <span
+              className="font-medium ml-3 text-btn_bg italic"
+              style={{ fontFamily: '"Tourney", sans-serif' }}
+            >
+              Tourists
+            </span>
+            <br /> Spots
+          </h1>
+        </div>
+        <form
+          onSubmit={handleSubmit(onSubmit)}
+          className="grid grid-cols-2 gap-x-16 gap-y-5 justify-between"
+          id="addSpots"
+        >
+          <div className="space-y-2">
+            <h1 className="text-xl font-semibold ml-1 text-nav_bg">
+              User Name :
+            </h1>
+            <input
+              className="px-5 py-3 w-full rounded border border-nav_bg outline-none text-nav_bg"
+              {...register("name", { required: true })}
+              placeholder="Enter user name"
+              type="text"
+            />
+            {errors.name && (
+              <span className="text-red-500">User Name is required</span>
+            )}
+          </div>
+          <div className="space-y-2">
+            <h1 className="text-xl font-semibold ml-1 text-nav_bg">
+              User Email :
+            </h1>
+            <input
+              className="px-5 py-3 w-full rounded border border-nav_bg outline-none text-nav_bg"
+              {...register("email", { required: true })}
+              placeholder="Enter user email"
+              type="email"
+            />
+            {errors.email && (
+              <span className="text-red-500">User Email is required</span>
+            )}
+          </div>
+          <div className="space-y-2">
+            <h1 className="text-xl font-semibold ml-1 text-nav_bg">
+              Tourists Spot Name :
+            </h1>
+            <input
+              className="px-5 py-3 w-full rounded border border-nav_bg outline-none text-nav_bg"
+              {...register("spot_Name", { required: true })}
+              placeholder="Enter tourists spot name"
+              type="text"
+            />
+            {errors.average_cost && (
+              <span className="text-red-500">Average cost is required</span>
+            )}
+          </div>
+          <div className="space-y-2">
+            <h1 className="text-xl font-semibold ml-1 text-nav_bg">
+              Country Name :
+            </h1>
+            <input
+              className="px-5 py-3 w-full rounded border border-nav_bg outline-none text-nav_bg"
+              {...register("cName", { required: true })}
+              placeholder="Enter country name"
+              type="text"
+            />
+            {errors.cName && (
+              <span className="text-red-500">Country Name is required</span>
+            )}
+          </div>
+          <div className="space-y-2">
+            <h1 className="text-xl font-semibold ml-1 text-nav_bg">
+              Location :
+            </h1>
+            <input
+              className="px-5 py-3 w-full rounded border border-nav_bg outline-none text-nav_bg"
+              {...register("location", { required: true })}
+              placeholder="Enter country name"
+              type="text"
+            />
+            {errors.location && (
+              <span className="text-red-500">Location is required</span>
+            )}
+          </div>
+          <div className="space-y-2">
+            <h1 className="text-xl font-semibold ml-1 text-nav_bg">
+              Seasonality :
+            </h1>
+            <input
+              className="px-5 py-3 w-full rounded border border-nav_bg outline-none text-nav_bg"
+              {...register("seasonality", { required: true })}
+              placeholder="Enter seasonality"
+              type="text"
+            />
+            {errors.cost && (
+              <span className="text-red-500">Seasonality is required</span>
+            )}
+          </div>
+          <div className="space-y-2">
+            <h1 className="text-xl font-semibold ml-1 text-nav_bg">
+              Total Visitors Per Year :
+            </h1>
+            <input
+              className="px-5 py-3 w-full rounded border border-nav_bg outline-none text-nav_bg"
+              {...register("visitor", { required: true })}
+              placeholder="Enter total visitors per year"
+              type="number"
+            />
+            {errors.cost && (
+              <span className="text-red-500">
+                Total Visitors Per Year is required
+              </span>
+            )}
+          </div>
+          <div className="space-y-2">
+            <h1 className="text-xl font-semibold ml-1 text-nav_bg">
+              Travel Time :
+            </h1>
+            <input
+              className="px-5 py-3 w-full rounded border border-nav_bg outline-none text-nav_bg"
+              {...register("visitor", { required: true })}
+              placeholder="Enter travel time"
+              type="month"
+            />
+            {errors.cost && (
+              <span className="text-red-500">Travel Time is required</span>
+            )}
+          </div>
+          <div className="space-y-2">
+            <h1 className="text-xl font-semibold ml-1 text-nav_bg">
+              Average Cost:
+            </h1>
+            <input
+              className="px-5 py-3 w-full rounded border border-nav_bg outline-none text-nav_bg"
+              {...register("cost", { required: true })}
+              placeholder="Enter average cost"
+              type="number"
+            />
+            {errors.cost && (
+              <span className="text-red-500">Average Cost is required</span>
+            )}
+          </div>
+          <div className="space-y-2">
+            <h1 className="text-xl font-semibold ml-1 text-nav_bg">
+              Image (URL):
+            </h1>
+            <input
+              className="px-5 py-3 w-full rounded border border-nav_bg outline-none text-nav_bg"
+              {...register("url", { required: true })}
+              placeholder="Enter image (URL..)"
+              type="url"
+            />
+            {errors.cost && (
+              <span className="text-red-500">Image (URL) is required</span>
+            )}
+          </div>
+          <div className="space-y-2 col-span-2">
+            <h1 className="text-xl font-semibold ml-1 text-nav_bg">
+              Short Description:
+            </h1>
+            <textarea
+              className="px-5 py-7 w-full rounded border border-nav_bg outline-none text-nav_bg"
+              {...register("desscription", { required: true })}
+              placeholder="Enter short description"
+              rows="10"
+            ></textarea>
+
+            {errors.cost && (
+              <span className="text-red-500">
+                Short Description is required
+              </span>
+            )}
+          </div>
+        </form>
+        <button
+          form="addSpots"
+          className="bg-btn_bg w-full px-5 py-3 text-2xl font-bold rounded"
+        >
+          Submit
+        </button>
+      </div>
+    </section>
+  );
 };
 
 export default Add_Spots;
