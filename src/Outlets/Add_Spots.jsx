@@ -9,7 +9,16 @@ const Add_Spots = () => {
     formState: { errors },
   } = useForm();
   const onSubmit = (data) => {
-    console.log(data);
+    fetch(`http://localhost:5426/spots`, {
+      method: 'POST',
+      headers:{
+        'Content-type' : 'Application/json'
+      },
+      body: JSON.stringify(data)
+    }).then(res => res.json())
+    .then(dt =>{
+      console.log(dt);
+    })
   };
   return (
     <section className="min-h-[calc(100vh-64px)] px-28 py-10">
@@ -134,7 +143,7 @@ const Add_Spots = () => {
               className="px-5 py-3 w-full rounded border border-nav_bg outline-none text-nav_bg"
               {...register("visitor", { required: true })}
               placeholder="Enter total visitors per year"
-              type="number"
+              type="text"
             />
             {errors.cost && (
               <span className="text-red-500">
@@ -148,9 +157,9 @@ const Add_Spots = () => {
             </h1>
             <input
               className="px-5 py-3 w-full rounded border border-nav_bg outline-none text-nav_bg"
-              {...register("visitor", { required: true })}
+              {...register("timing", { required: true })}
               placeholder="Enter travel time"
-              type="month"
+              type="text"
             />
             {errors.cost && (
               <span className="text-red-500">Travel Time is required</span>
@@ -189,10 +198,10 @@ const Add_Spots = () => {
               Short Description:
             </h1>
             <textarea
-              className="px-5 py-7 w-full rounded border border-nav_bg outline-none text-nav_bg"
+              className="px-5 py-3 w-full rounded border border-nav_bg outline-none text-nav_bg"
               {...register("desscription", { required: true })}
               placeholder="Enter short description"
-              rows="10"
+              rows="3"
             ></textarea>
 
             {errors.cost && (
