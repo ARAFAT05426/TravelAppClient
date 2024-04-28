@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 const SpotCard = ({ data }) => {
   return (
     <div className="px-5 py-10 rounded-md bg-card_bg/75 backdrop:blur-2xl mx-5 space-y-3 h-[60vh]">
-      <img className="w-full mx-auto h-40 lg:h-64" src={data?.url} alt="" />
+      <img className="w-full mx-auto object-cover h-40 lg:h-64" src={data?.url} alt="" />
       <h1 className="text-3xl font-semibold ">{data?.spot_Name}</h1>
       <div className="flex justify-between px-1">
         <h1 className="flex items-center text-xs gap-1">

@@ -1,5 +1,4 @@
- 
-const LogIn = () => {
+const CountrySpots = () => {
     return (
         <section>
             
@@ -7,4 +6,4 @@ const LogIn = () => {
     );
 };
 
-export default LogIn;
+export default CountrySpots;

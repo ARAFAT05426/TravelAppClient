@@ -51,7 +51,7 @@ const SignUp = () => {
           <div className="flex flex-col space-y-2 text-nav_bg">
             <h1 className="font-semibold text-xl text-nav_bg">Name</h1>
             <input
-              className="p-5 rounded outline-none border border-nav_bg"
+              className="p-5 rounded outline-none bg-white/80 border border-nav_bg"
               {...register("name", { required: true })}
               type="text"
               placeholder="Enter your email"
@@ -61,7 +61,7 @@ const SignUp = () => {
           <div className="flex flex-col space-y-2 text-nav_bg">
             <h1 className="font-semibold text-xl text-nav_bg">Email</h1>
             <input
-              className="p-5 rounded outline-none border border-nav_bg"
+              className="p-5 rounded outline-none bg-white/80 border border-nav_bg"
               {...register("email", { required: true })}
               type="email"
               placeholder="Enter your email"
@@ -72,7 +72,7 @@ const SignUp = () => {
             <h1 className="font-semibold text-xl text-nav_bg">Password</h1>
             <div className="flex items-center bg-white border text-nav_bg border-nav_bg w-full p-1 rounded">
               <input
-                className="p-4 grow rounded text-nav_bg outline-none"
+                className="p-4 grow rounded text-nav_bg outline-none bg-white/80"
                 {...register("password", { required: true })}
                 type={toggle ? "text" : "password"}
                 placeholder="Enter your email"
@@ -93,7 +93,7 @@ const SignUp = () => {
           <div className="flex flex-col space-y-2 text-nav_bg">
             <h1 className="font-semibold text-xl text-nav_bg">Url</h1>
             <input
-              className="p-5 rounded outline-none border border-nav_bg"
+              className="p-5 rounded outline-none bg-white/80 border border-nav_bg"
               {...register("url")}
               type="url"
               placeholder="Enter profile-image url..."

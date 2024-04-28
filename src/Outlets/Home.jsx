@@ -1,4 +1,5 @@
 import Banner from "../Sections/Banner";
+import Country from "../Sections/Country";
 import TouristSpots from "../Sections/TouristSpots";
 
 const Home = () => {
@@ -6,6 +7,7 @@ const Home = () => {
     <section className="">
       <Banner />
       <TouristSpots />
+      <Country />
     </section>
   );
 };

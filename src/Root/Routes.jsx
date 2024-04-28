@@ -11,6 +11,7 @@ import LogIn from "../Outlets/LogIn/LogIn";
 import Private from "../Outlets/Private";
 import SpotDetails from "../Outlets/SpotDetails";
 import MyList from "../Outlets/MyList";
+import UpdateSpot from "../Outlets/UpdateSpot";
 
 const routes = createBrowserRouter([
   {
@@ -54,6 +55,11 @@ const routes = createBrowserRouter([
       {
         path: '/myList',
         element: <Private><MyList /></Private>
+      },
+      {
+        path: '/updateSpot/:id',
+        element: <Private><UpdateSpot /></Private>,
+        loader: ({params}) => fetch(`http://localhost:5426/spots/${params.id}`)
       }
     ],
   },

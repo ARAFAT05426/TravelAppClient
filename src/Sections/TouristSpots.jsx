@@ -11,7 +11,6 @@ import { GrFormNextLink } from "react-icons/gr";
 import { GrFormPreviousLink } from "react-icons/gr";
 const TouristSpots = () => {
   const { data } = useRefetch("http://localhost:5426/spots");
-  console.log(data);
   return (
     <section
       className="my-12 bg-no-repeat bg-cover py-7"
@@ -21,7 +20,7 @@ const TouristSpots = () => {
     >
       <div className=" flex flex-col items-center justify-center">
         <img className="w-[8%] mx-auto" src={klicktrips} alt="" />
-        <h1 className="text-5xl font-semibold italic">Thrilling Tour Spots</h1>
+        <h1 style={{ fontFamily: '"Pacifico", cursive' }} className="text-5xl dark:text-white text-nav_bg font-semibold italic">Thrilling Tour Spots</h1>
       </div>
       <div className=" w-full px-2 lg:w-3/4 mx-auto mt-16 relative">
         <Swiper

@@ -61,7 +61,7 @@ const LogIn = () => {
           <div className="flex flex-col space-y-2 text-nav_bg">
             <h1 className="font-semibold text-xl text-nav_bg">Email</h1>
             <input
-              className="p-5 rounded outline-none border border-nav_bg"
+              className="p-5 bg-white/80 rounded outline-none border border-nav_bg"
               {...register("email", { required: true })}
               type="email"
               placeholder="Enter your email"
@@ -69,9 +69,9 @@ const LogIn = () => {
           </div>
           <div className="flex flex-col space-y-2 text-nav_bg">
             <h1 className="font-semibold text-xl text-nav_bg">Password</h1>
-            <div className="flex items-center bg-white border text-nav_bg border-nav_bg w-full p-1 rounded">
+            <div className="flex items-center bg-white/80 border text-nav_bg border-nav_bg w-full p-1 rounded">
               <input
-                className="p-4 grow rounded text-nav_bg outline-none"
+                className="p-4 bg-white/80 grow rounded text-nav_bg outline-none"
                 {...register("password", { required: true })}
                 type={toggle ? "text" : "password"}
                 placeholder="Enter your email"
