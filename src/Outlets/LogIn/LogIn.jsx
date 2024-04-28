@@ -9,10 +9,10 @@ import { useForm } from "react-hook-form";
 import useCallContext from "../../Hooks/useCallContext";
 import { useState } from "react";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
-import Swal from 'sweetalert2'
+import Swal from "sweetalert2";
 const LogIn = () => {
   const [toggle, setToggle] = useState(false);
-  const { signUser } = useCallContext();
+  const { signUser, signUserWithGoogle } = useCallContext();
   const location = useLocation();
   const navigate = useNavigate();
   const {
@@ -28,14 +28,24 @@ const LogIn = () => {
         Swal.fire({
           background: "#CDD4DB",
           title: `Welcome Back To KlickTrips`,
-          text: 'Let`s roll ',
-          icon: 'success',
-      });
-        navigate(location?.state || "/")
+          text: "Let`s roll ",
+          icon: "success",
+        });
+        navigate(location?.state || "/");
         e.target.reset();
       })
       .catch((error) => {
         return console.log(error);
+      });
+  };
+  const handleSocialSignIn = (method) => {
+    console.log("Clicked");
+    method()
+      .then(() => {
+        navigate(location?.state || "/");
+      })
+      .catch((err) => {
+        console.log(err);
       });
   };
   return (
@@ -97,7 +107,10 @@ const LogIn = () => {
         </div>
         {/* Social-Login */}
         <div className="flex justify-around items-center">
-          <button className="flex items-center w-2/5 mx-auto justify-center text-3xl gap-1 font-semibold text-nav_bg px-5 py-3 border border-nav_bg rounded-md">
+          <button
+            onClick={() => handleSocialSignIn(signUserWithGoogle)}
+            className="flex items-center w-2/5 mx-auto justify-center text-3xl gap-1 font-semibold text-nav_bg px-5 py-3 border border-nav_bg rounded-md"
+          >
             <FcGoogle className="text-5xl" />
             Google
           </button>

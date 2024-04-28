@@ -9,6 +9,7 @@ import { Tooltip } from "react-tooltip";
 
 const Navbar = () => {
   // State for controlling mobile menu visibility
+  const { user, signOutUSer } = useCallContext();
   const [act, setAct] = useState(false);
   // JSX for navigation links
   const links = (
@@ -22,6 +23,9 @@ const Navbar = () => {
       <NavLink to={"/addSpots"} className="cBtn">
         Add Spots
       </NavLink>
+      <NavLink to={"/myList"} className={`cBtn`}>
+        My list
+      </NavLink>
       <NavLink to={"/about"} className="cBtn">
         About
       </NavLink>
@@ -30,7 +34,6 @@ const Navbar = () => {
       </NavLink>
     </>
   );
-  const { user, signOutUSer } = useCallContext();
   const handleLogOut = () => {
     signOutUSer();
     return Swal.fire({
@@ -86,7 +89,7 @@ const Navbar = () => {
                 Log Out
               </button>
               <Tooltip
-                style={{background: '#446680'}}
+                style={{ background: "#446680" }}
                 id="userName"
                 place="left-start"
               />

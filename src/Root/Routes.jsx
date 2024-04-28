@@ -10,6 +10,7 @@ import SignUp from "../Outlets/SignUp/SignUp";
 import LogIn from "../Outlets/LogIn/LogIn";
 import Private from "../Outlets/Private";
 import SpotDetails from "../Outlets/SpotDetails";
+import MyList from "../Outlets/MyList";
 
 const routes = createBrowserRouter([
   {
@@ -23,7 +24,7 @@ const routes = createBrowserRouter([
       },
       {
         path: "/allTouristSpots",
-        element: <All_Spots />,
+        element: <All_Spots />
       },
       {
         path: "/addSpots",
@@ -49,6 +50,10 @@ const routes = createBrowserRouter([
         path: '/spotdetails/:id',
         element: <Private><SpotDetails/></Private>,
         loader: ({params}) => fetch(`http://localhost:5426/spots/${params.id}`)
+      },
+      {
+        path: '/myList',
+        element: <Private><MyList /></Private>
       }
     ],
   },

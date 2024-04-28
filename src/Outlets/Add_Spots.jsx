@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
+import Swal from "sweetalert2";
 const Add_Spots = () => {
   const [isHovered, setIsHovered] = useState(false);
   const {
@@ -8,21 +9,30 @@ const Add_Spots = () => {
     handleSubmit,
     formState: { errors },
   } = useForm();
-  const onSubmit = (data) => {
+  const onSubmit = (data, e) => {
     fetch(`http://localhost:5426/spots`, {
-      method: 'POST',
-      headers:{
-        'Content-type' : 'Application/json'
+      method: "POST",
+      headers: {
+        "Content-type": "Application/json",
       },
-      body: JSON.stringify(data)
-    }).then(res => res.json())
-    .then(dt =>{
-      console.log(dt);
+      body: JSON.stringify(data),
     })
+      .then((res) => res.json())
+      .then((dt) => {
+        console.log(dt);
+        e.target.reset()
+        return Swal.fire({
+          background: "#CDD4DB",
+          title: `Tourist Spot Added`,
+          text: "Let`s Add More ",
+          icon: "success",
+        });
+      });
   };
   return (
     <section className="min-h-[calc(100vh-64px)] px-28 py-10">
-      <Link to={'/'}
+      <Link
+        to={"/"}
         className={`px-5 py-3 ${
           isHovered ? "text-nav_bg" : "bg-btn_bg "
         } flex items-center w-fit gap-1 font-semibold rounded-sm transition-all`}
@@ -97,12 +107,17 @@ const Add_Spots = () => {
             <h1 className="text-xl font-semibold ml-1 text-nav_bg">
               Country Name :
             </h1>
-            <input
+            <select
               className="px-5 py-3 w-full rounded border border-nav_bg outline-none text-nav_bg"
               {...register("cName", { required: true })}
-              placeholder="Enter country name"
-              type="text"
-            />
+            >
+              <option className="text-nav_bg" value="">Select country</option>
+              <option className="text-nav_bg" value="bangladesh">Bangladesh</option>
+              <option className="text-nav_bg" value="cambodia">Cambodia</option>
+              <option className="text-nav_bg" value="malaysia">Malaysia</option>
+              <option className="text-nav_bg" value="thailand">Thailand</option>
+              <option className="text-nav_bg" value="vietnam">Vietnam</option>
+            </select>
             {errors.cName && (
               <span className="text-red-500">Country Name is required</span>
             )}
@@ -114,7 +129,7 @@ const Add_Spots = () => {
             <input
               className="px-5 py-3 w-full rounded border border-nav_bg outline-none text-nav_bg"
               {...register("location", { required: true })}
-              placeholder="Enter country name"
+              placeholder="Enter location"
               type="text"
             />
             {errors.location && (
@@ -199,7 +214,7 @@ const Add_Spots = () => {
             </h1>
             <textarea
               className="px-5 py-3 w-full rounded border border-nav_bg outline-none text-nav_bg"
-              {...register("desscription", { required: true })}
+              {...register("description", { required: true })}
               placeholder="Enter short description"
               rows="3"
             ></textarea>

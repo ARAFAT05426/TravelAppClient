@@ -1,8 +1,16 @@
+import SpotCard from "../Cards/SpotCard";
+import useRefetch from "../Hooks/UseRefetch";
 
 const All_Spots = () => {
+    const {data} = useRefetch(`http://localhost:5426/spots`)
+    console.log(data);
     return (
-        <section className="pt-20">
-            <h1>i am Spots</h1>
+        <section className="py-10">
+            <div className="grid grid-cols-3 gap-y-10">
+                {
+                    data?.map((item, inx) => <SpotCard key={inx} data={item}/>)
+                }
+            </div>
         </section>
     );
 };

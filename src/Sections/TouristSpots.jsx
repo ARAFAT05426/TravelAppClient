@@ -1,4 +1,4 @@
-import useRefetch from "../Hooks/useRefetch";
+import useRefetch from "../Hooks/UseRefetch";
 import spots_BG from "/Resources/spots_bg.png";
 import klicktrips from "/Resources/Klicktrips.png";
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -44,7 +44,7 @@ const TouristSpots = () => {
           }}
           className="mySwiper"
         >
-          {data?.map((item, inx) => (
+          {data?.slice(0, 6).map((item, inx) => (
             <SwiperSlide key={inx}>
               <SpotCard data={item} />
             </SwiperSlide>
