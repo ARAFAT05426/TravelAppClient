@@ -2,7 +2,6 @@ import { createBrowserRouter } from "react-router-dom";
 import Root from "./Root";
 import Error from "../Outlets/Error";
 import Home from "../Outlets/Home";
-import About from "../Outlets/About";
 import Contact from "../Outlets/Contact";
 import All_Spots from "../Outlets/All_Spots";
 import Add_Spots from "../Outlets/Add_Spots";
@@ -12,6 +11,7 @@ import Private from "../Outlets/Private";
 import SpotDetails from "../Outlets/SpotDetails";
 import MyList from "../Outlets/MyList";
 import UpdateSpot from "../Outlets/UpdateSpot";
+import CountrySpots from "../Outlets/CountrySpots";
 
 const routes = createBrowserRouter([
   {
@@ -30,10 +30,6 @@ const routes = createBrowserRouter([
       {
         path: "/addSpots",
         element: <Private><Add_Spots /></Private>,
-      },
-      {
-        path: "/about",
-        element: <About />,
       },
       {
         path: "/contact",
@@ -60,6 +56,11 @@ const routes = createBrowserRouter([
         path: '/updateSpot/:id',
         element: <Private><UpdateSpot /></Private>,
         loader: ({params}) => fetch(`http://localhost:5426/spots/${params.id}`)
+      },
+      {
+        path: '/coutrySpot/:name',
+        element: <CountrySpots/>,
+        loader: ({params}) => fetch(`http://localhost:5426/coutrySpot/${params.name}`)
       }
     ],
   },

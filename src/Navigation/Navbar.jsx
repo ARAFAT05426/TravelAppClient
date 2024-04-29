@@ -43,12 +43,13 @@ const Navbar = () => {
       <NavLink to={"/addSpots"} className="cBtn">
         Add Spots
       </NavLink>
-      <NavLink to={"/myList"} className={`cBtn`}>
+      {
+        user?.displayName ? 
+        <NavLink to={"/myList"} className={`cBtn`}>
         My list
-      </NavLink>
-      <NavLink to={"/about"} className="cBtn">
-        About
-      </NavLink>
+      </NavLink> :
+      ""
+      }
       <NavLink to={"/contact"} className="cBtn">
         Contact
       </NavLink>

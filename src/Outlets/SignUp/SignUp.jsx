@@ -2,7 +2,7 @@ import Lottie from "lottie-react";
 import signUp from "./SignUp.json";
 import logo from "/Resources/logo.png";
 import { CiLogin } from "react-icons/ci";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import { FaEye } from "react-icons/fa";
 import { FaEyeSlash } from "react-icons/fa";
@@ -17,17 +17,25 @@ const SignUp = () => {
     handleSubmit,
     formState: { errors },
   } = useForm();
+  const location = useLocation();
+  const navigate = useNavigate();
   const { createUser, updateUser } = useCallContext();
   const onSubmit = (data, e) => {
     const { name, email, password, url } = data;
     const passValue = data.password;
     if (!/^(?=.*[a-z])(?=.*[A-Z]).{6,}$/.test(passValue)) {
-      return alert("Error passWord");
+      return Swal.fire({
+        background: "#CDD4DB",
+        title: `Password Error`,
+        text: "Password must contain lower-case, upper-case & length should be more than 6",
+        icon: "success",
+      });
     }
     createUser(email, password)
       .then(() => {
         e.target.reset();
         updateUser(name, url);
+        navigate(location?.state || "/");
         return Swal.fire({
           background: "#CDD4DB",
           title: `Welcome To KlickTrips`,
@@ -106,7 +114,7 @@ const SignUp = () => {
           className="w-full bg-btn_bg px-5 py-3 rounded-md text-xl font-bold flex items-center gap-1 justify-center"
         >
           {" "}
-          <CiLogin className="text-3xl" /> Log In
+          <CiLogin className="text-3xl" /> Sign Up
         </button>
         <p className="font-semibold text-nav_bg text-center">
           Already have an account?{" "}

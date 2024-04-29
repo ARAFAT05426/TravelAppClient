@@ -21,7 +21,7 @@ const Banner = () => {
         loop={true}
         autoplay={{ delay: 1500 }}
         modules={[Autoplay, Pagination]}
-        className="mySwiper min-h-[100vh-64px] absolute top-0 left-0"
+        className="mySwiper h-[60vh] lg:min-h-[100vh-64px] absolute top-0 left-0"
       >
         <SwiperSlide>
           <img className="h-[92vh] w-full" src={slide_1} alt="" />

@@ -12,7 +12,7 @@ import { FaEye, FaEyeSlash } from "react-icons/fa";
 import Swal from "sweetalert2";
 const LogIn = () => {
   const [toggle, setToggle] = useState(false);
-  const { signUser, signUserWithGoogle } = useCallContext();
+  const { signUser, signUserWithGoogle, signUserWithGithub } = useCallContext();
   const location = useLocation();
   const navigate = useNavigate();
   const {
@@ -39,13 +39,18 @@ const LogIn = () => {
       });
   };
   const handleSocialSignIn = (method) => {
-    console.log("Clicked");
     method()
       .then(() => {
         navigate(location?.state || "/");
       })
       .catch((err) => {
         console.log(err);
+        Swal.fire({
+          background: "#CDD4DB",
+          title: `Plz Provide Valid Email & Password`,
+          text: "Let`s roll ",
+          icon: "warning",
+        });
       });
   };
   return (
@@ -109,12 +114,15 @@ const LogIn = () => {
         <div className="flex justify-around items-center">
           <button
             onClick={() => handleSocialSignIn(signUserWithGoogle)}
-            className="flex items-center w-2/5 mx-auto justify-center text-3xl gap-1 font-semibold text-nav_bg px-5 py-3 border border-nav_bg rounded-md"
+            className="flex items-center w-2/5 mx-auto justify-center text-xl lg:text-3xl gap-1 font-semibold text-nav_bg px-5 py-3 border border-nav_bg rounded-md"
           >
             <FcGoogle className="text-5xl" />
             Google
           </button>
-          <button className="flex items-center w-2/5 mx-auto justify-center text-3xl gap-1 font-semibold text-nav_bg px-5 py-3 border border-nav_bg rounded-md">
+          <button
+            onClick={() => handleSocialSignIn(signUserWithGithub)}
+            className="flex items-center w-2/5 mx-auto justify-center text-xl lg:text-3xl gap-1 font-semibold text-nav_bg px-5 py-3 border border-nav_bg rounded-md"
+          >
             <FaSquareGithub className="text-5xl text-nav_bg" />
             Github
           </button>
