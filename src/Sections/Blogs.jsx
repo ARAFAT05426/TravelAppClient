@@ -38,7 +38,7 @@ const BlogSection = () => {
     <section className="py-6 sm:py-12 text-gray-800">
       <div className="container px-4 mx-auto space-y-8">
         <div className="space-y-6 text-center">
-          <h2 className="text-3xl font-bold">Adventures with Wanderlust</h2>
+          <h2 className="text-3xl lg:text-5xl font-bold">Travel Blogs</h2>
           <p className="font-serif text-sm text-gray-600">
             Explore our latest blog posts for travel inspiration
           </p>

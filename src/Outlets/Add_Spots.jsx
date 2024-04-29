@@ -2,15 +2,17 @@ import { Link } from "react-router-dom";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
 import Swal from "sweetalert2";
+import useCallContext from "../Hooks/useCallContext";
 const Add_Spots = () => {
   const [isHovered, setIsHovered] = useState(false);
+  const {user} = useCallContext()
   const {
     register,
     handleSubmit,
     formState: { errors },
   } = useForm();
   const onSubmit = (data, e) => {
-    fetch(`http://localhost:5426/spots`, {
+    fetch(`https://assignment-10-plum.vercel.app/spots`, {
       method: "POST",
       headers: {
         "Content-type": "Application/json",
@@ -83,6 +85,7 @@ const Add_Spots = () => {
               className="px-5 py-3 text-xs bg-white/80 lg:text-lg w-full rounded border border-nav_bg outline-none text-nav_bg"
               {...register("email", { required: true })}
               placeholder="Enter user email"
+              defaultValue={user?.email}
               type="email"
             />
             {errors.email && (

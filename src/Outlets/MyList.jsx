@@ -9,7 +9,7 @@ import { Link } from "react-router-dom";
 const MyList = () => {
   const { user } = useCallContext();
   const { data, loading, refetch } = UseRefetch(
-    `http://localhost:5426/myList/${user?.email}`
+    `https://assignment-10-plum.vercel.app/myList/${user?.email}`
   );
 
   const handleDelete = (id) => {
@@ -24,12 +24,14 @@ const MyList = () => {
       confirmButtonText: "Yes, delete it!",
     }).then((result) => {
       if (result.isConfirmed) {
-        fetch(`http://localhost:5426/spots/${id}`, {
+        fetch(`https://assignment-10-plum.vercel.app/spots/${id}`, {
           method: "DELETE",
         })
           .then((res) => res.json())
-          .then((dt) => console.log(dt));
-        refetch();
+          .then((dt) => {
+            console.log(dt)
+            refetch();
+          });
         Swal.fire({
           background: "#CDD4DB",
           title: "Deleted!",

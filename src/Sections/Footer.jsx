@@ -30,16 +30,11 @@ const Footer = () => {
               <ul className="space-y-1 flex flex-col">{links}</ul>
             </div>
             <div className="space-y-3">
-              <h3 className="tracking-wide uppercase text-slate-400 font-semibold">Company</h3>
+              <h3 className="tracking-wide uppercase text-slate-400 font-semibold">Help</h3>
               <ul className="space-y-1">
                 <li>
                   <a rel="noopener noreferrer" href="#privacy">
-                    Privacy
-                  </a>
-                </li>
-                <li>
-                  <a rel="noopener noreferrer" href="#terms">
-                    Terms of Service
+                    klicktrips@gmail.com
                   </a>
                 </li>
               </ul>

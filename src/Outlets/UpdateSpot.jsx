@@ -12,7 +12,7 @@ const UpdateSpot = () => {
     formState: { errors },
   } = useForm();
   const onSubmit = (data, e) => {
-    fetch(`http://localhost:5426/spots/${oldData?._id}`, {
+    fetch(`https://assignment-10-plum.vercel.app/spots/${oldData?._id}`, {
         method: 'PUT',
         headers: {
             'Content-type':'Application/json'
@@ -32,42 +32,15 @@ const UpdateSpot = () => {
   };
   return (
     <section className="px-2 lg:px-28 py-10">
+      <div className="pb-7 text-3xl lg:text-6xl font-semibold text-center">
+        <h1>Let`s Update {oldData?.spot_Name}</h1>
+      </div>
       <div className="space-y-3">
         <form
           onSubmit={handleSubmit(onSubmit)}
           className="grid grid-cols-2 gap-x-6 lg:gap-x-16 gap-y-5 w-full"
           id="addSpots"
         >
-          <div className="space-y-2 w-full">
-            <h1 className="text-sm lg:text-xl font-semibold ml-1 text-nav_bg">
-              User Name :
-            </h1>
-            <input
-              className="px-5 py-3 text-xs bg-white/80 lg:text-lg w-full rounded border border-nav_bg outline-none text-nav_bg"
-              {...register("name", { required: true })}
-              placeholder={oldData?.name}
-              defaultValue={oldData?.name}
-              type="text"
-            />
-            {errors.name && (
-              <span className="text-red-500">User Name is required</span>
-            )}
-          </div>
-          <div className="space-y-2 w-full">
-            <h1 className="text-sm lg:text-xl font-semibold ml-1 text-nav_bg">
-              User Email :
-            </h1>
-            <input
-              className="px-5 py-3 text-xs bg-white/80 lg:text-lg w-full rounded border border-nav_bg outline-none text-nav_bg"
-              {...register("email", { required: true })}
-              placeholder={oldData?.email}
-              defaultValue={oldData?.email}
-              type="email"
-            />
-            {errors.email && (
-              <span className="text-red-500">User Email is required</span>
-            )}
-          </div>
           <div className="space-y-2 w-full">
             <h1 className="text-sm lg:text-xl font-semibold ml-1 text-nav_bg">
               Tourists Spot Name :

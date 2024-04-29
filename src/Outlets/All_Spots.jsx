@@ -1,16 +1,21 @@
 import { useState } from "react";
 import SpotCard from "../Cards/SpotCard";
 import useRefetch from "../Hooks/UseRefetch";
+import Loader from "../Sections/Loader/Loader";
 
 const AllSpots = () => {
-  const { data } = useRefetch(`http://localhost:5426/spots`);
-  const [sort, setSort] = useState(null); 
+  const { data, loading } = useRefetch(
+    `https://assignment-10-plum.vercel.app/spots`
+  );
+  const [sort, setSort] = useState(null);
 
   const handleSortChange = (event) => {
     const selectedSort = event.target.value;
-    setSort(selectedSort); 
+    setSort(selectedSort);
   };
-
+  if (loading) {
+    return <Loader />;
+  }
   return (
     <section className="py-5">
       <div className="flex items-center py-7 justify-center">

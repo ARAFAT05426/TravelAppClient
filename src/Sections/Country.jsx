@@ -1,17 +1,21 @@
 import { Link } from "react-router-dom";
 import UseRefetch from "../Hooks/UseRefetch";
+import Loader from "./Loader/Loader";
 
 const Country = () => {
-  const { data } = UseRefetch(`http://localhost:5426/coutrySpot`);
+  const { data, loading } = UseRefetch(
+    `https://assignment-10-plum.vercel.app/coutrySpot`
+  );
+  if (loading) {
+    return <Loader />;
+  }
   return (
     <section className="py-10 px-3 lg:px-28">
       <section>
-  <div className="skewed"></div>
-</section>
+        <div className="skewed"></div>
+      </section>
       <div>
-        <h1
-          className=" dark:text-white text-btn_bg text-6xl text-center font-semibold"
-        >
+        <h1 className=" dark:text-white text-btn_bg text-6xl text-center font-semibold">
           Pack Up and Go
         </h1>
       </div>

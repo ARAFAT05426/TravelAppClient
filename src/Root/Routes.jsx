@@ -46,7 +46,7 @@ const routes = createBrowserRouter([
       {
         path: '/spotdetails/:id',
         element: <Private><SpotDetails/></Private>,
-        loader: ({params}) => fetch(`http://localhost:5426/spots/${params.id}`)
+        loader: ({params}) => fetch(`https://assignment-10-plum.vercel.app/spots/${params.id}`)
       },
       {
         path: '/myList',
@@ -55,12 +55,12 @@ const routes = createBrowserRouter([
       {
         path: '/updateSpot/:id',
         element: <Private><UpdateSpot /></Private>,
-        loader: ({params}) => fetch(`http://localhost:5426/spots/${params.id}`)
+        loader: ({params}) => fetch(`https://assignment-10-plum.vercel.app/spots/${params.id}`)
       },
       {
         path: '/coutrySpot/:name',
         element: <CountrySpots/>,
-        loader: ({params}) => fetch(`http://localhost:5426/coutrySpot/${params.name}`)
+        loader: ({params}) => fetch(`https://assignment-10-plum.vercel.app/coutrySpot/${params.name}`)
       }
     ],
   },

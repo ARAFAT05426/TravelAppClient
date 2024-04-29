@@ -7,7 +7,6 @@ import { useLoaderData } from "react-router-dom";
 
 const SpotDetails = () => {
   const data = useLoaderData();
-  console.log(data);
   return (
     <section className="p-5 mx-auto sm:p-10 md:p-16 text-gray-800">
       <div className="flex flex-col max-w-6xl mx-auto overflow-hidden rounded-lg shadow-lg">
@@ -39,7 +38,7 @@ const SpotDetails = () => {
             </div>
             <div className="px-5 py-3 bg-btn_bg rounded-lg flex items-center gap-2">
               <h1 className="font-extrabold text-xl text-white">${data?.cost}</h1>
-              <span className="text-sm text-white line-through">${parseInt(data?.cost) + 20}</span>
+              <span className="text-xs">per day</span>
             </div>
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 items-center">
@@ -53,7 +52,7 @@ const SpotDetails = () => {
             </div>
             <div className="flex items-center text-xs gap-1 text-gray-800">
               <button className="bg-btn_bg p-1 lg:p-[6px] rounded-full"><GoPeople className="text-white" /></button>
-              {data?.visitor}
+              {data?.visitor} per year
             </div>
             <div className="flex items-center text-xs gap-1 text-gray-800">
               <button className="bg-btn_bg p-1 lg:p-[6px] rounded-full"><SlCalender className="text-white" /></button>
@@ -61,7 +60,7 @@ const SpotDetails = () => {
             </div>
             <div className="flex items-center text-xs gap-1 text-gray-800">
               <button className="bg-btn_bg p-1 lg:p-[6px] rounded-full"><MdOutlineTimer className="text-white" /></button>
-              {data?.timing}
+              {data?.timing} days
             </div>
           </div>
           <hr className="border-btn_bg" />
