@@ -1,9 +1,11 @@
 import { useForm } from "react-hook-form";
-import { useLoaderData } from "react-router-dom";
+import { useLoaderData, useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
 
 const UpdateSpot = () => {
     const oldData = useLoaderData();
+  const navigate = useNavigate();
+
   const {
     register,
     handleSubmit,
@@ -20,11 +22,12 @@ const UpdateSpot = () => {
     .then(() =>{
         e.target.reset()
         Swal.fire({
-            background: "#CDD4DB",
-            title: "Spot Details Updated!",
-            text: "Your file has been deleted.",
-            icon: "success",
-          });
+          background: "#CDD4DB",
+          title: "Spot Details Updated!",
+          text: "Your file has been deleted.",
+          icon: "success",
+        });
+        navigate(-1)
     })
   };
   return (

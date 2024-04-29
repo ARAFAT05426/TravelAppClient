@@ -3,7 +3,7 @@ import Country from "../Sections/Country";
 import NewsLetter from "../Sections/NewsLetter";
 import Testimonials from "../Sections/Testimonials";
 import TouristSpots from "../Sections/TouristSpots";
-import Tourtips from "../Sections/Blogs"
+import Blogs from "../Sections/Blogs"
 const Home = () => {
   return (
     <section className="">
@@ -11,7 +11,7 @@ const Home = () => {
       <TouristSpots />
       <Testimonials />
       <Country />
-      <Tourtips />
+      <Blogs />
       <NewsLetter />
     </section>
   );

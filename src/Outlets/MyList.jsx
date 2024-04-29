@@ -19,7 +19,7 @@ const MyList = () => {
       text: "You won't be able to revert this!",
       icon: "warning",
       showCancelButton: true,
-      confirmButtonColor: "#3085d6",
+      confirmButtonColor: "#446680",
       cancelButtonColor: "#d33",
       confirmButtonText: "Yes, delete it!",
     }).then((result) => {
@@ -33,7 +33,7 @@ const MyList = () => {
         Swal.fire({
           background: "#CDD4DB",
           title: "Deleted!",
-          text: "Your file has been deleted.",
+          text: `Your tourist spot has been deleted.`,
           icon: "success",
         });
       }
@@ -47,33 +47,33 @@ const MyList = () => {
   return (
     <section className="py-10 min-h-[calc(100vh-64px)]">
       <div></div>
-      <div className="px-2 lg:px-28 overflow-x-auto">
-        <table className="min-w-full bg-white rounded-lg overflow-hidden">
+      <div className="px-2 lg:px-28">
+        <table className="min-w-full bg-white/75 rounded-lg overflow-hidden">
           <thead className="bg-gray-100 text-gray-600 uppercase text-xs leading-4">
             <tr>
-              <th className="py-2 text-nav_bg px-4 text-left">Id</th>
-              <th className="py-2 text-nav_bg px-4 text-left">Tourist Spot Name</th>
-              <th className="py-2 text-nav_bg px-4 text-left">Country Name</th>
-              <th className="py-2 text-nav_bg px-4 text-left">Visitors</th>
-              <th className="py-2 text-nav_bg px-4 text-center">Edit</th>
-              <th className="py-2 text-nav_bg px-4 text-center">Delete</th>
+              <th className="py-2 text-nav_bg px-1 md:px-3 lg:px-4 text-left">Id</th>
+              <th className="py-2 text-nav_bg px-1 md:px-3 lg:px-4 text-left">Tourist Spot Name</th>
+              <th className="py-2 text-nav_bg px-1 md:px-3 lg:px-4 text-left">Country Name</th>
+              <th className="py-2 text-nav_bg px-1 md:px-3 lg:px-4 text-left">Visitors</th>
+              <th className="py-2 text-nav_bg px-1 md:px-3 lg:px-4 text-center">Edit</th>
+              <th className="py-2 text-nav_bg px-1 md:px-3 lg:px-4 text-center">Delete</th>
             </tr>
           </thead>
           <tbody className="text-gray-600 text-xs font-light">
             {data?.map((item, index) => (
               <tr key={index} className="border-b border-gray-200 hover:bg-gray-100">
-                <td className="py-3 text-nav_bg px-4 text-left whitespace-nowrap">{index + 1}</td>
-                <td className="py-3 text-nav_bg px-4 text-left">{item?.spot_Name}</td>
-                <td className="py-3 text-nav_bg px-4 text-left">{item?.cName}</td>
-                <td className="py-3 text-nav_bg px-4 text-left">{item?.visitor}</td>
-                <td className="py-3 text-nav_bg px-4 text-center">
+                <td className="py-3 text-nav_bg px-1 md:px-3 lg:px-4 text-left whitespace-nowrap">{index + 1}</td>
+                <td className="py-3 text-nav_bg px-1 md:px-3 lg:px-4 text-left">{item?.spot_Name}</td>
+                <td className="py-3 text-nav_bg px-1 md:px-3 lg:px-4 text-left">{item?.cName}</td>
+                <td className="py-3 text-nav_bg px-1 md:px-3 lg:px-4 text-left">{item?.visitor}</td>
+                <td className="py-3 text-nav_bg px-1 md:px-3 lg:px-4 text-center">
                   <Link to={`/updateSpot/${item?._id}`}>
                     <button className="bg-btn_bg text-white py-1 px-2 rounded-lg">
                       <LuFileEdit className="text-lg" />
                     </button>
                   </Link>
                 </td>
-                <td className="py-3 text-nav_bg px-4 text-center">
+                <td className="py-3 text-nav_bg px-1 md:px-3 lg:px-4 text-center">
                   <button
                     onClick={() => handleDelete(item?._id)}
                     className="bg-red-500 text-white py-1 px-2 rounded-lg"

@@ -1,6 +1,6 @@
 const NewsLetter = () => {
     return (
-      <section className="">
+      <section className="mb-16">
         <div
           className="w-full bg-base-content bg-cover bg-none"
           style={{backgroundImage: `url('https://source.unsplash.com/random/640x480')`, backgroundBlendMode: `multiply`}}

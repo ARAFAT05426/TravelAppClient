@@ -1,11 +1,8 @@
 import { Typewriter } from "react-simple-typewriter";
 import { Swiper, SwiperSlide } from "swiper/react";
-// Import Swiper styles
 import "swiper/css";
 import "swiper/css/pagination";
-// import required modules
 import { Autoplay, Pagination } from "swiper/modules";
-// Slide_Images
 import slide_1 from "/Resources/Slides/Slide_1.jpg";
 import slide_2 from "/Resources/Slides/Slide_2.jpg";
 import slide_3 from "/Resources/Slides/Slide_3.jpg";

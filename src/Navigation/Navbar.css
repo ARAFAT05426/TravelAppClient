@@ -10,7 +10,6 @@
   overflow: hidden;
 }
 
-/* Toggle Button */
 #toggle {
   cursor: pointer;
   padding: 0.1rem 0.3rem;
@@ -49,7 +48,6 @@
 /* Custom Navbar Links with Animation */
 .cBtn {
   position: relative;
-  color: #ffffff;
   transition: all 0.3s ease;
 }
 

@@ -22,7 +22,6 @@ const LogIn = () => {
   } = useForm();
   const onSubmit = (data, e) => {
     const { email, password } = data;
-    console.log(email, password);
     signUser(email, password)
       .then(() => {
         Swal.fire({
@@ -34,8 +33,14 @@ const LogIn = () => {
         navigate(location?.state || "/");
         e.target.reset();
       })
-      .catch((error) => {
-        return console.log(error);
+      .catch((err) => {
+        console.log(err);
+        return Swal.fire({
+          background: "#CDD4DB",
+          title: `Kindly provide valid email & password`,
+          text: "Try again",
+          icon: "warning",
+        });
       });
   };
   const handleSocialSignIn = (method) => {
@@ -45,12 +50,6 @@ const LogIn = () => {
       })
       .catch((err) => {
         console.log(err);
-        Swal.fire({
-          background: "#CDD4DB",
-          title: `Plz Provide Valid Email & Password`,
-          text: "Let`s roll ",
-          icon: "warning",
-        });
       });
   };
   return (
@@ -102,7 +101,6 @@ const LogIn = () => {
           {" "}
           <CiLogin className="text-3xl" /> Log In
         </button>
-        {/* Divider */}
         <div className="text-nav_bg text-center flex items-center gap-3 ">
           <hr className="w-full opacity-75 border-nav_bg rounded" />{" "}
           <span className=" text-nav_bg w-fit text-nowrap font-bold opacity-65">

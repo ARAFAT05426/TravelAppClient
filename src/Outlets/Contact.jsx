@@ -25,7 +25,7 @@ const Contact = () => {
                 id="name"
                 type="text"
                 placeholder="Enter your full name"
-                className="w-full border-2 p-3 rounded bg-white/80 focus:outline-none focus:ring-2 focus:ring-yellow-500 transition duration-300 ease-in-out"
+                className="w-full border-2 p-3 rounded bg-white/80 text-nav_bg focus:outline-none focus:ring-2 transition duration-300 ease-in-out"
               />
             </div>
             <div>
@@ -36,7 +36,7 @@ const Contact = () => {
                 id="email"
                 type="email"
                 placeholder="Enter your email address"
-                className="w-full border-2 p-3 rounded bg-white/80 focus:outline-none focus:ring-2 focus:ring-yellow-500 transition duration-300 ease-in-out"
+                className="w-full border-2 p-3 rounded bg-white/80 text-nav_bg focus:outline-none focus:ring-2 transition duration-300 ease-in-out"
               />
             </div>
             <div className="grow space-y-3">
@@ -47,7 +47,7 @@ const Contact = () => {
                 id="message"
                 rows="3"
                 placeholder="Enter your message"
-                className="w-full h-[94%] border-2 p-3 rounded bg-white/80 focus:outline-none focus:ring-2 focus:ring-yellow-500 transition duration-300 ease-in-out"
+                className="w-full h-[94%] border-2 p-3 rounded bg-white/80 text-nav_bg focus:outline-none focus:ring-2 transition duration-300 ease-in-out"
               ></textarea>
             </div>
             <button

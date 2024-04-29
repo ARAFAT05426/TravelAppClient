@@ -87,7 +87,7 @@ const SignUp = () => {
               />
               <span
                 onClick={() => setToggle(!toggle)}
-                className="bg-nav_bg p-2 rounded-full cursor-pointer mr-2"
+                className="bg-base-100 p-2 rounded-full cursor-pointer mr-2"
               >
                 {toggle ? (
                   <FaEye className="text-xl" />

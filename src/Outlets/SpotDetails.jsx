@@ -26,7 +26,7 @@ const SpotDetails = () => {
               >
                 {data?.spot_Name}
               </a>
-              <p className="text-sm font-bold text-gray-600">
+              <p className="text-sm text-center lg:text-left font-bold text-gray-600">
                 By
                 <a
                   rel="noopener noreferrer"

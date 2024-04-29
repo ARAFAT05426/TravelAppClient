@@ -1,35 +1,33 @@
-import { useState } from "react";
-
 const Testimonials = () => {
-  const [testimonials] = useState([
+  const testimonials = [
     {
       content:
-        "An audire commodo habemus cum. Ne sed corrumpit repudiandae. Tota aliquip democritum pro in, nec democritum intellegam ne. Propriae volutpat dissentiet ea sit, nec at lorem inani tritani, an ius populo perfecto vituperatoribus. Eu cum case modus salutandi, ut eum vocent sensibus reprehendunt.",
-      author: "Leroy Jenkins",
-      position: "CTO of Company Co.",
+        "I've been using this travel service for years, and it never disappoints. The attention to detail and personalized experiences make every trip memorable.",
+      author: "Jessica Martinez",
+      position: "Frequent Traveler",
     },
     {
       content:
-        "Sit wisi sapientem ut, pri civibus temporibus voluptatibus et, ius cu hinc fabulas. Nam meliore minimum et, regione convenire cum id. Ex pro eros mucius consectetuer, pro magna nulla nonumy ne, eam putent iudicabit consulatu cu.",
-      author: "John Doe",
-      position: "CEO of Company Inc.",
+        "Booking through this platform was seamless. I found amazing deals and had access to a wide range of destinations. Highly recommend!",
+      author: "Michael Johnson",
+      position: "Adventure Enthusiast",
     },
     {
       content:
-        "Putant omnium elaboraret per ut. Id dicta tritani nominavi quo, mea id justo errem elaboraret. Agam mollis scripserit ea his, ut nec postea verear persecuti. Ea noster senserit eam, ferri omittantur ei nec. Id mel solet libris efficiantur, commune explicari et eos.",
-      author: "Jane Smith",
-      position: "CTO of Another Company",
+        "The customer service provided by this company is exceptional. They went above and beyond to ensure my trip went smoothly, even with last-minute changes.",
+      author: "Emily Thompson",
+      position: "Business Traveler",
     },
     {
       content:
-        "Te omnes virtute volutpat sed. Ei esse eros interesset vel, ei populo denique ocurreret vix, eu cum pertinax mandamus vituperatoribus. Solum nihil luptatum per ex, ei amet viderer eos. Ea illum labitur mnesarchum pro.",
-      author: "Emily Johnson",
-      position: "Marketing Director",
+        "As a solo traveler, safety is always a priority for me. I felt secure and well-supported throughout my journey with this travel service.",
+      author: "David Lee",
+      position: "Solo Explorer",
     },
-  ]);
+  ];
 
   return (
-    <section className="py-10">
+    <section className="py-10 ">
       <section
         className="shadow-md my-10 bg-cover bg-center relative"
         style={{
