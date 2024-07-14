@@ -1,33 +1,31 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect } from 'react';
+import axios from 'axios';
 
-const UseRefetch = (url) => {
-  const [data, setData] = useState(null);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
-  const [toggle, setToggle] = useState(false);
+const useRefetchData = (url, initialData = []) => {
+  const [data, setData] = useState(initialData);
+  const [status, setStatus] = useState('idle'); // idle, fetching, fetched, error
 
-  const fetchData = async (http) => {
-    setLoading(true);
+  const fetchData = async () => {
+    setStatus('fetching');
     try {
-      const response = await fetch(http);
-      if (!response.ok) {
-        throw new Error("Failed to fetch data");
-      }
-      const jsonData = await response.json();
-      setData(jsonData)
+      const response = await axios.get(url);
+      setData(response.data);
+      setStatus('fetched');
     } catch (error) {
-      setError(error);
-    } finally {
-      setLoading(false);
+      console.error('Error fetching data:', error);
+      setStatus('error');
     }
-  }
-  useEffect(() =>{
-    fetchData(url)
-  }, [toggle, url])
-  const refetch = () =>{
-    return setToggle(!toggle)
-  }
-  return { data, loading, error, refetch };
+  };
+
+  useEffect(() => {
+    fetchData();
+  }, [url]); // refetch on url change
+
+  const refetch = async () => {
+    await fetchData();
+  };
+
+  return { data, status, refetch };
 };
 
-export default UseRefetch;
+export default useRefetchData;

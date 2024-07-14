@@ -24,7 +24,7 @@ const Navbar = () => {
       setTheme("dark");
     } else {
       setTheme("light");
-    }
+    } 
   };
 
   const links = (
